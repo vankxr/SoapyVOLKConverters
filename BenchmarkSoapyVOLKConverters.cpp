@@ -204,12 +204,12 @@ int main(int, char**)
         compareConverters<int8_t, float>(
             SOAPY_SDR_S8,
             SOAPY_SDR_F32,
-            TestUtility::S8ToF32Scalar,
+            1.0,
             "volk_8i_s32f_convert_32f");
         benchmarkVectorizedOnly<int8_t, double>(
             SOAPY_SDR_S8,
             SOAPY_SDR_F64,
-            TestUtility::S8ToF32Scalar,
+            1.0,
             "volk_8i_s32f_convert_32f");
 
         // int16_t
@@ -221,41 +221,41 @@ int main(int, char**)
         compareConverters<int16_t, float>(
             SOAPY_SDR_S16,
             SOAPY_SDR_F32,
-            TestUtility::S16ToF32Scalar,
+            1.0,
             "volk_16i_s32f_convert_32f");
         benchmarkVectorizedOnly<int16_t, double>(
             SOAPY_SDR_S16,
             SOAPY_SDR_F64,
-            TestUtility::S16ToF32Scalar,
+            1.0,
             "volk_16i_s32f_convert_32f");
 
         // int32_t
         benchmarkVectorizedOnly<int32_t, float>(
             SOAPY_SDR_S32,
             SOAPY_SDR_F32,
-            TestUtility::S32ToF32Scalar,
+            1.0,
             "volk_32i_s32f_convert_32f");
         benchmarkVectorizedOnly<int32_t, double>(
             SOAPY_SDR_S32,
             SOAPY_SDR_F64,
-            TestUtility::S32ToF32Scalar,
+            1.0,
             "volk_32i_s32f_convert_32f");
 
         // float
         compareConverters<float, int8_t>(
             SOAPY_SDR_F32,
             SOAPY_SDR_S8,
-            TestUtility::F32ToS8Scalar,
+            1.0,
             "volk_32f_s32f_convert_8i");
         compareConverters<float, int16_t>(
             SOAPY_SDR_F32,
             SOAPY_SDR_S16,
-            TestUtility::F32ToS16Scalar,
+            1.0,
             "volk_32f_s32f_convert_16i");
         benchmarkVectorizedOnly<float, int32_t>(
             SOAPY_SDR_F32,
             SOAPY_SDR_S32,
-            TestUtility::F32ToS32Scalar,
+            1.0,
             "volk_32f_s32f_convert_32i");
         compareConverters<float, float>(
             SOAPY_SDR_F32,
@@ -272,17 +272,17 @@ int main(int, char**)
         benchmarkVectorizedOnly<double, int8_t>(
             SOAPY_SDR_F64,
             SOAPY_SDR_S8,
-            TestUtility::F32ToS8Scalar,
+            1.0,
             "volk_32f_s32f_convert_8i");
         benchmarkVectorizedOnly<double, int16_t>(
             SOAPY_SDR_F64,
             SOAPY_SDR_S16,
-            TestUtility::F32ToS16Scalar,
+            1.0,
             "volk_32f_s32f_convert_16i");
         benchmarkVectorizedOnly<double, int32_t>(
             SOAPY_SDR_F64,
             SOAPY_SDR_S32,
-            TestUtility::F32ToS32Scalar,
+            1.0,
             "volk_32f_s32f_convert_32i");
         benchmarkVectorizedOnly<double, float>(
             SOAPY_SDR_F64,
@@ -299,12 +299,12 @@ int main(int, char**)
         compareConverters<std::complex<int8_t>, std::complex<float>>(
             SOAPY_SDR_CS8,
             SOAPY_SDR_CF32,
-            TestUtility::S8ToF32Scalar,
+            1.0,
             "volk_8i_s32f_convert_32f");
         benchmarkVectorizedOnly<std::complex<int8_t>, std::complex<double>>(
             SOAPY_SDR_CS8,
             SOAPY_SDR_CF64,
-            TestUtility::S8ToF32Scalar,
+            1.0,
             "volk_8i_s32f_convert_32f");
 
         // std::complex<int16_t>
@@ -316,41 +316,41 @@ int main(int, char**)
         compareConverters<std::complex<int16_t>, std::complex<float>>(
             SOAPY_SDR_CS16,
             SOAPY_SDR_CF32,
-            TestUtility::S16ToF32Scalar,
+            1.0,
             "volk_16i_s32f_convert_32f");
         benchmarkVectorizedOnly<std::complex<int16_t>, std::complex<double>>(
             SOAPY_SDR_CS16,
             SOAPY_SDR_CF64,
-            TestUtility::S16ToF32Scalar,
+            1.0,
             "volk_16i_s32f_convert_32f");
 
         // std::complex<int32_t>
         benchmarkVectorizedOnly<std::complex<int32_t>, std::complex<float>>(
             SOAPY_SDR_CS32,
             SOAPY_SDR_CF32,
-            TestUtility::S32ToF32Scalar,
+            1.0,
             "volk_32i_s32f_convert_32f");
         benchmarkVectorizedOnly<std::complex<int32_t>, std::complex<double>>(
             SOAPY_SDR_CS32,
             SOAPY_SDR_CF64,
-            TestUtility::S32ToF32Scalar,
+            1.0,
             "volk_32i_s32f_convert_32f");
 
         // std::complex<float>
         compareConverters<std::complex<float>, std::complex<int8_t>>(
             SOAPY_SDR_CF32,
             SOAPY_SDR_CS8,
-            TestUtility::F32ToS8Scalar,
+            1.0,
             "volk_32f_s32f_convert_8i");
         compareConverters<std::complex<float>, std::complex<int16_t>>(
             SOAPY_SDR_CF32,
             SOAPY_SDR_CS16,
-            TestUtility::F32ToS16Scalar,
+            1.0,
             "volk_32f_s32f_convert_16i");
         benchmarkVectorizedOnly<std::complex<float>, std::complex<int32_t>>(
             SOAPY_SDR_CF32,
             SOAPY_SDR_CS32,
-            TestUtility::F32ToS32Scalar,
+            1.0,
             "volk_32f_s32f_convert_32i");
         compareConverters<std::complex<float>, std::complex<float>>(
             SOAPY_SDR_CF32,
@@ -367,17 +367,17 @@ int main(int, char**)
         benchmarkVectorizedOnly<std::complex<double>, std::complex<int8_t>>(
             SOAPY_SDR_CF64,
             SOAPY_SDR_CS8,
-            TestUtility::F32ToS8Scalar,
+            1.0,
             "volk_32f_s32f_convert_8i");
         benchmarkVectorizedOnly<std::complex<double>, std::complex<int16_t>>(
             SOAPY_SDR_CF64,
             SOAPY_SDR_CS16,
-            TestUtility::F32ToS16Scalar,
+            1.0,
             "volk_32f_s32f_convert_16i");
         benchmarkVectorizedOnly<std::complex<double>, std::complex<int32_t>>(
             SOAPY_SDR_CF64,
             SOAPY_SDR_CS32,
-            TestUtility::F32ToS32Scalar,
+            1.0,
             "volk_32f_s32f_convert_32i");
         benchmarkVectorizedOnly<std::complex<double>, std::complex<float>>(
             SOAPY_SDR_CF64,

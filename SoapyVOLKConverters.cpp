@@ -6,6 +6,7 @@
  **********************************************************************/
 
 #include <SoapySDR/ConverterRegistry.hpp>
+#include <SoapySDR/ConverterPrimitives.hpp>
 #include <SoapySDR/Logger.hpp>
 
 #include <volk/volk.h>
@@ -45,7 +46,7 @@ static void convertS8ToF64(const void* srcBuff, void* dstBuff, const size_t numE
     volk_8i_s32f_convert_32f(
         intermediate.data(),
         reinterpret_cast<const int8_t*>(srcBuff),
-        static_cast<float>(1.0 / scalar),
+        static_cast<float>((float)SoapySDR::S8_FULL_SCALE / scalar),
         static_cast<unsigned int>(numElems));
 
     volk_32f_convert_64f(
@@ -60,7 +61,7 @@ static void convertS16ToF64(const void* srcBuff, void* dstBuff, const size_t num
     volk_16i_s32f_convert_32f(
         intermediate.data(),
         reinterpret_cast<const int16_t*>(srcBuff),
-        static_cast<float>(1.0 / scalar),
+        static_cast<float>((float)SoapySDR::S16_FULL_SCALE / scalar),
         static_cast<unsigned int>(numElems));
 
     volk_32f_convert_64f(
@@ -75,7 +76,7 @@ static void convertS32ToF64(const void* srcBuff, void* dstBuff, const size_t num
     volk_32i_s32f_convert_32f(
         intermediate.data(),
         reinterpret_cast<const int32_t*>(srcBuff),
-        static_cast<float>(1.0 / scalar),
+        static_cast<float>((float)SoapySDR::S32_FULL_SCALE / scalar),
         static_cast<unsigned int>(numElems));
 
     volk_32f_convert_64f(
@@ -110,7 +111,7 @@ static void convertF64ToS8(const void* srcBuff, void* dstBuff, const size_t numE
     volk_32f_s32f_convert_8i(
         reinterpret_cast<int8_t*>(dstBuff),
         intermediate.data(),
-        static_cast<float>(scalar),
+        static_cast<float>((float)SoapySDR::S8_FULL_SCALE * scalar),
         static_cast<unsigned int>(numElems));
 }
 
@@ -125,7 +126,7 @@ static void convertF64ToS16(const void* srcBuff, void* dstBuff, const size_t num
     volk_32f_s32f_convert_16i(
         reinterpret_cast<int16_t*>(dstBuff),
         intermediate.data(),
-        static_cast<float>(scalar),
+        static_cast<float>((float)SoapySDR::S16_FULL_SCALE * scalar),
         static_cast<unsigned int>(numElems));
 }
 
@@ -140,7 +141,7 @@ static void convertF64ToS32(const void* srcBuff, void* dstBuff, const size_t num
     volk_32f_s32f_convert_32i(
         reinterpret_cast<int32_t*>(dstBuff),
         intermediate.data(),
-        static_cast<float>(scalar),
+        static_cast<float>((float)SoapySDR::S32_FULL_SCALE * scalar),
         static_cast<unsigned int>(numElems));
 }
 
@@ -184,7 +185,7 @@ static SoapySDR::ConverterRegistry registerS8ToF32(
         volk_8i_s32f_convert_32f(
             reinterpret_cast<float*>(dstBuff),
             reinterpret_cast<const int8_t*>(srcBuff),
-            static_cast<float>(1.0 / scalar),
+            static_cast<float>((float)SoapySDR::S8_FULL_SCALE / scalar),
             static_cast<unsigned int>(numElems));
     });
 
@@ -219,7 +220,7 @@ static SoapySDR::ConverterRegistry registerS16ToF32(
         volk_16i_s32f_convert_32f(
             reinterpret_cast<float*>(dstBuff),
             reinterpret_cast<const int16_t*>(srcBuff),
-            static_cast<float>(1.0 / scalar),
+            static_cast<float>((float)SoapySDR::S16_FULL_SCALE / scalar),
             static_cast<unsigned int>(numElems));
     });
 
@@ -242,7 +243,7 @@ static SoapySDR::ConverterRegistry registerS32ToF32(
         volk_32i_s32f_convert_32f(
             reinterpret_cast<float*>(dstBuff),
             reinterpret_cast<const int32_t*>(srcBuff),
-            static_cast<float>(1.0 / scalar),
+            static_cast<float>((float)SoapySDR::S32_FULL_SCALE / scalar),
             static_cast<unsigned int>(numElems));
     });
 
@@ -265,7 +266,7 @@ static SoapySDR::ConverterRegistry registerF32ToS8(
         volk_32f_s32f_convert_8i(
             reinterpret_cast<int8_t*>(dstBuff),
             reinterpret_cast<const float*>(srcBuff),
-            static_cast<float>(scalar),
+            static_cast<float>((float)SoapySDR::S8_FULL_SCALE * scalar),
             static_cast<unsigned int>(numElems));
     });
 
@@ -278,7 +279,7 @@ static SoapySDR::ConverterRegistry registerF32ToS16(
         volk_32f_s32f_convert_16i(
             reinterpret_cast<int16_t*>(dstBuff),
             reinterpret_cast<const float*>(srcBuff),
-            static_cast<float>(scalar),
+            static_cast<float>((float)SoapySDR::S16_FULL_SCALE * scalar),
             static_cast<unsigned int>(numElems));
     });
 
@@ -291,7 +292,7 @@ static SoapySDR::ConverterRegistry registerF32ToS32(
         volk_32f_s32f_convert_32i(
             reinterpret_cast<int32_t*>(dstBuff),
             reinterpret_cast<const float*>(srcBuff),
-            static_cast<float>(scalar),
+            static_cast<float>((float)SoapySDR::S32_FULL_SCALE * scalar),
             static_cast<unsigned int>(numElems));
     });
 
@@ -367,7 +368,7 @@ static SoapySDR::ConverterRegistry registerCS8ToCF32(
         volk_8i_s32f_convert_32f(
             reinterpret_cast<float*>(dstBuff),
             reinterpret_cast<const int8_t*>(srcBuff),
-            static_cast<float>(1.0 / scalar),
+            static_cast<float>((float)SoapySDR::S8_FULL_SCALE / scalar),
             static_cast<unsigned int>(numElems * 2));
     });
 
@@ -405,7 +406,7 @@ static SoapySDR::ConverterRegistry registerCS16ToCF32(
         volk_16i_s32f_convert_32f(
             reinterpret_cast<float*>(dstBuff),
             reinterpret_cast<const int16_t*>(srcBuff),
-            static_cast<float>(1.0 / scalar),
+            static_cast<float>((float)SoapySDR::S16_FULL_SCALE / scalar),
             static_cast<unsigned int>(numElems * 2));
     });
 
@@ -431,7 +432,7 @@ static SoapySDR::ConverterRegistry registerCS32ToCF32(
         volk_32i_s32f_convert_32f(
             reinterpret_cast<float*>(dstBuff),
             reinterpret_cast<const int32_t*>(srcBuff),
-            static_cast<float>(1.0 / scalar),
+            static_cast<float>((float)SoapySDR::S32_FULL_SCALE / scalar),
             static_cast<unsigned int>(numElems * 2));
     });
 
@@ -457,7 +458,7 @@ static SoapySDR::ConverterRegistry registerCF32ToCS8(
         volk_32f_s32f_convert_8i(
             reinterpret_cast<int8_t*>(dstBuff),
             reinterpret_cast<const float*>(srcBuff),
-            static_cast<float>(scalar),
+            static_cast<float>((float)SoapySDR::S8_FULL_SCALE * scalar),
             static_cast<unsigned int>(numElems * 2));
     });
 
@@ -470,7 +471,7 @@ static SoapySDR::ConverterRegistry registerCF32ToCS16(
         volk_32f_s32f_convert_16i(
             reinterpret_cast<int16_t*>(dstBuff),
             reinterpret_cast<const float*>(srcBuff),
-            static_cast<float>(scalar),
+            static_cast<float>((float)SoapySDR::S16_FULL_SCALE * scalar),
             static_cast<unsigned int>(numElems * 2));
     });
 
@@ -483,7 +484,7 @@ static SoapySDR::ConverterRegistry registerCF32ToCS32(
         volk_32f_s32f_convert_32i(
             reinterpret_cast<int32_t*>(dstBuff),
             reinterpret_cast<const float*>(srcBuff),
-            static_cast<float>(scalar),
+            static_cast<float>((float)SoapySDR::S32_FULL_SCALE * scalar),
             static_cast<unsigned int>(numElems * 2));
     });
 

@@ -135,11 +135,11 @@ int main(int, char**)
     testConverterLoopback<int8_t, float>(
         SOAPY_SDR_S8,
         SOAPY_SDR_F32,
-        TestUtility::S8ToF32Scalar);
+        1.0);
     testConverterLoopback<int8_t, double>(
         SOAPY_SDR_S8,
         SOAPY_SDR_F64,
-        TestUtility::S8ToF32Scalar);
+        1.0);
 
     // int16_t
     testConverterLoopback<int16_t, int8_t>(
@@ -149,27 +149,27 @@ int main(int, char**)
     testConverterLoopback<int16_t, float>(
         SOAPY_SDR_S16,
         SOAPY_SDR_F32,
-        TestUtility::S16ToF32Scalar);
+        1.0);
 
     // int32_t
     testConverterLoopback<int32_t, float>(
         SOAPY_SDR_S32,
         SOAPY_SDR_F32,
-        TestUtility::S32ToF32Scalar);
+        1.0);
 
     // float
     testConverterLoopback<float, int8_t>(
         SOAPY_SDR_F32,
         SOAPY_SDR_S8,
-        TestUtility::F32ToS8Scalar);
+        1.0);
     testConverterLoopback<float, int16_t>(
         SOAPY_SDR_F32,
         SOAPY_SDR_S16,
-        TestUtility::F32ToS16Scalar);
+        1.0);
     testConverterLoopback<float, int32_t>(
         SOAPY_SDR_F32,
         SOAPY_SDR_S32,
-        TestUtility::F32ToS32Scalar);
+        1.0);
     testConverterLoopback<float, float>(
         SOAPY_SDR_F32,
         SOAPY_SDR_F32,
@@ -183,15 +183,15 @@ int main(int, char**)
     testConverterLoopback<double, int8_t>(
         SOAPY_SDR_F64,
         SOAPY_SDR_S8,
-        TestUtility::F32ToS8Scalar);
+        1.0);
     testConverterLoopback<double, int16_t>(
         SOAPY_SDR_F64,
         SOAPY_SDR_S16,
-        TestUtility::F32ToS16Scalar);
+        1.0);
     testConverterLoopback<double, int32_t>(
         SOAPY_SDR_F64,
         SOAPY_SDR_S32,
-        TestUtility::F32ToS32Scalar);
+        1.0);
     testConverterLoopback<double, float>(
         SOAPY_SDR_F64,
         SOAPY_SDR_F32,
@@ -205,11 +205,11 @@ int main(int, char**)
     testConverterLoopback<std::complex<int8_t>, std::complex<float>>(
         SOAPY_SDR_CS8,
         SOAPY_SDR_CF32,
-        TestUtility::S8ToF32Scalar);
+        1.0);
     testConverterLoopback<std::complex<int8_t>, std::complex<double>>(
         SOAPY_SDR_CS8,
         SOAPY_SDR_CF64,
-        TestUtility::S8ToF32Scalar);
+        1.0);
 
     // std::complex<int16_t>
     testConverterLoopback<std::complex<int16_t>, std::complex<int8_t>>(
@@ -219,31 +219,31 @@ int main(int, char**)
     testConverterLoopback<std::complex<int16_t>, std::complex<float>>(
         SOAPY_SDR_CS16,
         SOAPY_SDR_CF32,
-        TestUtility::S16ToF32Scalar);
+        1.0);
     testConverterLoopback<std::complex<int16_t>, std::complex<double>>(
         SOAPY_SDR_CS16,
         SOAPY_SDR_CF64,
-        TestUtility::S16ToF32Scalar);
+        1.0);
 
     // std::complex<int32_t>
     testConverterLoopback<std::complex<int32_t>, std::complex<float>>(
         SOAPY_SDR_CS32,
         SOAPY_SDR_CF32,
-        TestUtility::S32ToF32Scalar);
+        1.0);
 
     // std::complex<float>
     testConverterLoopback<std::complex<float>, std::complex<int8_t>>(
         SOAPY_SDR_CF32,
         SOAPY_SDR_CS8,
-        TestUtility::F32ToS8Scalar);
+        1.0);
     testConverterLoopback<std::complex<float>, std::complex<int16_t>>(
         SOAPY_SDR_CF32,
         SOAPY_SDR_CS16,
-        TestUtility::F32ToS16Scalar);
+        1.0);
     testConverterLoopback<std::complex<float>, std::complex<int32_t>>(
         SOAPY_SDR_CF32,
         SOAPY_SDR_CS32,
-        TestUtility::F32ToS32Scalar);
+        1.0);
     testConverterLoopback<std::complex<float>, std::complex<float>>(
         SOAPY_SDR_CF32,
         SOAPY_SDR_CF32,
@@ -257,15 +257,15 @@ int main(int, char**)
     testConverterLoopback<std::complex<double>, std::complex<int8_t>>(
         SOAPY_SDR_CF64,
         SOAPY_SDR_CS8,
-        TestUtility::F32ToS8Scalar);
+        1.0);
     testConverterLoopback<std::complex<double>, std::complex<int16_t>>(
         SOAPY_SDR_CF64,
         SOAPY_SDR_CS16,
-        TestUtility::F32ToS16Scalar);
+        1.0);
     testConverterLoopback<std::complex<double>, std::complex<int32_t>>(
         SOAPY_SDR_CF64,
         SOAPY_SDR_CS32,
-        TestUtility::F32ToS32Scalar);
+        1.0);
     testConverterLoopback<std::complex<double>, std::complex<float>>(
         SOAPY_SDR_CF64,
         SOAPY_SDR_CF32,
